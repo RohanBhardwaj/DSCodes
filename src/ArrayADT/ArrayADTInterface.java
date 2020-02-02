@@ -3,7 +3,7 @@ package ArrayADT;
 public interface ArrayADTInterface {
     boolean insert(int element);
 
-    int delete();
+    boolean delete();
 
     void traverse();
 
