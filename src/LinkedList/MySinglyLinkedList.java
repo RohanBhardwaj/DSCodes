@@ -4,7 +4,9 @@ class MySinglyLinkedList {
     Node head;
 
     //insert at last
-    void insert(Node node) {
+    void insert(int data) {
+        Node node = new Node();
+        node.data = data;
         if (head == null) {
             head = node;
         } else {
@@ -17,48 +19,11 @@ class MySinglyLinkedList {
     }
 
     //insert at begining
-    void insertAtBeginning(Node node) {
+    void insertAtBeginning(int data) {
+        Node node = new Node();
+        node.data = data;
         node.next = head;
         head = node;
-    }
-
-    //insert before a node assuming the before node is present in list
-    void insertBeforeNode(Node node, Node beforenode) {
-        if (head == null) {
-            System.out.println("list emplty");
-        } else {
-            Node temp = head;
-            Node previous = null;
-            while (temp.data != beforenode.data) {
-                previous = temp;
-                temp = temp.next;
-
-            }
-            //checking ifbeforenode is the first node then we have to insert at beginning
-            if (temp == head) {
-                node.next = head;
-                head = node;
-            } else {
-                node.next = temp;
-                previous.next = temp;
-
-            }
-        }
-
-    }
-
-    //insert after a node
-    void insertAfterNode(Node node, Node afternode) {
-        if (head == null) {
-            System.out.println("empty list");
-        } else {
-            Node temp = head;
-            while (temp.data != afternode.data) {
-                temp = temp.next;
-            }
-            node.next = temp.next;
-            temp.next = node;
-        }
     }
 
     // to display linked list
@@ -69,7 +34,7 @@ class MySinglyLinkedList {
         } else {
             Node temp = head;
             while (temp != null) {
-                System.out.print(temp.data + "--->");
+                System.out.print(temp.data + "->");
                 temp = temp.next;
             }
             System.out.println("null");
@@ -77,11 +42,6 @@ class MySinglyLinkedList {
         }
     }
 
-    /*
-    deleting a node from singly linked list require a reference to previous node as
-    we need to change the next reference of previous node to the next reference of
-    the current node
-     */
     //to delete a node from last
     void delete() {
         if (head == null) {
@@ -112,42 +72,92 @@ class MySinglyLinkedList {
         }
     }
 
-    //to delete before a node
-    void deleteBeforeNode(Node beforenode) {
-        if (head == null) {
-            System.out.println("empty list");
-        } else {
-            Node temp = head;
-            Node current = null;
-            Node previous = null;
-            while (temp.data != beforenode.data) {
-                previous = current;
-                current = temp;
-                temp = temp.next;
-            }
-            if (previous == null) {
-                head = current.next;
-            } else {
-                previous.next = temp;
-            }
-        }
-    }
+//    //insert before a node assuming the before node is present in list
+//    void insertBeforeNode(Node node, Node beforenode) {
+//        if (head == null) {
+//            System.out.println("list emplty");
+//        } else {
+//            Node temp = head;
+//            Node previous = null;
+//            while (temp.data != beforenode.data) {
+//                previous = temp;
+//                temp = temp.next;
+//
+//            }
+//            //checking if beforenode is the first node then we have to insert at beginning
+//            if (temp == head) {
+//                node.next = head;
+//                head = node;
+//            } else {
+//                node.next = temp;
+//                previous.next = temp;
+//
+//            }
+//        }
+//
+//    }
 
-    //to delete after the given node
-    void deleteAfterNode(Node afternode) {
-        if (head == null) {
-            System.out.println("empty list");
-        } else {
-            Node temp = head;
+//    //insert after a node
+//    void insertAfterNode(Node node, Node afternode) {
+//        if (head == null) {
+//            System.out.println("empty list");
+//        } else {
+//            Node temp = head;
+//            while (temp.data != afternode.data) {
+//                temp = temp.next;
+//            }
+//            node.next = temp.next;
+//            temp.next = node;
+//        }
+//    }
 
-            while (temp.data != afternode.data) {
-                temp = temp.next;
-            }
-            if (temp.next == null) {
-                System.out.println("after node is the last node");
-            } else {
-                temp.next = temp.next.next;
-            }
-        }
-    }
+
+
+    /*
+    deleting a node from singly linked list require a reference to previous node as
+    we need to change the next reference of previous node to the next reference of
+    the current node
+     */
+
+
+//    //to delete before a node
+//    void deleteBeforeNode(Node beforenode) {
+//        if (head == null) {
+//            System.out.println("empty list");
+//        } else {
+//            Node temp = head;
+//            Node current = null;
+//            Node previous = null;
+//            while (temp.data != beforenode.data) {
+//                previous = current;
+//                current = temp;
+//                temp = temp.next;
+//            }
+//            if (previous == null) {
+//                head = current.next;
+//            } else {
+//                previous.next = temp;
+//            }
+//        }
+//    }
+//
+//    //to delete after the given node
+//    void deleteAfterNode(Node afternode) {
+//        if (head == null) {
+//            System.out.println("empty list");
+//        } else {
+//            Node temp = head;
+//
+//            while (temp.data != afternode.data) {
+//                temp = temp.next;
+//            }
+//            if (temp.next == null) {
+//                System.out.println("after node is the last node");
+//            } else {
+//                temp.next = temp.next.next;
+//            }
+//        }
+//    }
+//}
 }
+// write a prog to print a given singly linked list in reverse
